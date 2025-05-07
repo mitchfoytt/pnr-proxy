@@ -18,11 +18,11 @@ export default async function handler(req, res) {
   console.log('Received PNR body:', req.body);
 
   try {
-    const response = await fetch('https://traveltailor.sandbox-pnrexpert.com/api/v1/pnr', {
+    const response = await fetch('https://www.pnrexpert.com/api/v1/pnr', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.PNR_API_KEY}` // ← stored in Vercel env
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1OTE5NjViLWI0N2QtNDM1MC1iNGNiLTdjODYyNTRmNDg1YiIsImlhdCI6MTc0NjQ4MjEwMH0.HGIbM8jp_uzA8vCBKvUXSPyTSbL-UTA_4k7rSG8gmzA` // ← stored in Vercel env
       },
       body: JSON.stringify(req.body)
     });
