@@ -1,4 +1,14 @@
 export default async function handler(req, res) {
+  // Add CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -8,7 +18,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1OTE5NjViLWI0N2QtNDM1MC1iNGNiLTdjODYyNTRmNDg1YiIsImlhdCI6MTc0NjQ4MjEwMH0.HGIbM8jp_uzA8vCBKvUXSPyTSbL-UTA_4k7rSG8gmzA' // 🔁 Replace with your token (temporarily)
+        'Authorization': `Bearer ${process.env.PNR_API_KEY}`
       },
       body: JSON.stringify(req.body)
     });
