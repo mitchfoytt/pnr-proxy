@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1OTE5NjViLWI0N2QtNDM1MC1iNGNiLTdjODYyNTRmNDg1YiIsImlhdCI6MTc0NjQ4MjEwMH0.HGIbM8jp_uzA8vCBKvUXSPyTSbL-UTA_4k7rSG8gmzA`
+        'Authorization': `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxYTc4ZTE3LTU1MTQtNGRhZi1hNDVlLTc0MGFhNDU0YTk4ZCIsImlhdCI6MTc0OTYwMDg4OX0.7lI97dtpiBJqN9eHm3BTZCFFDahOOJvOEjqXCflBZiE`
       },
       body: JSON.stringify(req.body)
     });
